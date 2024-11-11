@@ -22,7 +22,16 @@ class LoginScreen extends StatelessWidget {
               const Text('Welcome back! Let’s sign in',
                   style: TextStyle(color: Color(0xff7D8997), fontSize: 14)),
               const SizedBox(height: 24),
-              const TextFieldWidget()
+              const TextFieldWidget(
+                label: 'Phone Number',
+                hintText: '05**********',
+                visibility: false,
+              ),
+              const TextFieldWidget(
+                label: 'Password',
+                hintText: '05**********',
+                visibility: true,
+              ),
             ],
           ),
         ),
