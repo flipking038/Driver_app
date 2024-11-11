@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:telgani/constant.dart';
+import 'package:telgani/widgets/login_button.dart';
 import 'package:telgani/widgets/text_field_wodget.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -27,11 +29,37 @@ class LoginScreen extends StatelessWidget {
                 hintText: '05**********',
                 visibility: false,
               ),
+              const SizedBox(height: 23),
               const TextFieldWidget(
                 label: 'Password',
-                hintText: '05**********',
+                hintText: 'Password',
                 visibility: true,
               ),
+              const SizedBox(height: 16),
+              const Text(
+                'Forgot Password ?',
+                style: TextStyle(
+                    color: kPrimaryColor,
+                    fontWeight: FontWeight.w900,
+                    fontSize: 14),
+              ),
+              const SizedBox(height: 32),
+              const LoginButtton(),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'New to Telgani?',
+                    style: TextStyle(color: Color(0xff555F6a), fontSize: 14),
+                  ),
+                  SizedBox(width: 8),
+                  Text('Join Now!',
+                      style: TextStyle(
+                          color: kPrimaryColor,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w900)),
+                ],
+              )
             ],
           ),
         ),

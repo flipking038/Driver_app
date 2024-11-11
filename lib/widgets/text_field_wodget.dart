@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telgani/constant.dart';
 
 class TextFieldWidget extends StatelessWidget {
   const TextFieldWidget({
@@ -19,15 +20,18 @@ class TextFieldWidget extends StatelessWidget {
       children: [
         Text(label,
             style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
-        const SizedBox(height: 10),
         ClipRRect(
           borderRadius: BorderRadius.circular(8),
           child: TextField(
             obscureText: visibility,
             keyboardType: visibility ? null : TextInputType.number,
             decoration: InputDecoration(
-              suffixIcon:
-                  visibility ? const Icon(Icons.visibility_rounded) : null,
+              suffixIcon: visibility
+                  ? const Icon(
+                      Icons.visibility_rounded,
+                      color: kPrimaryColor,
+                    )
+                  : null,
               hintText: hintText,
               hintStyle:
                   const TextStyle(color: Color(0xff8A94A6), fontSize: 14),
