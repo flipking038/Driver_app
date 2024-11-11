@@ -6,8 +6,23 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [Image.asset('assets/image/logo.png')],
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('assets/image/logo.png'),
+              const SizedBox(height: 62),
+              const Text('Login',
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18)),
+              const SizedBox(height: 8),
+              const Text('Welcome back! Let’s sign in',
+                  style: TextStyle(color: Color(0xff7D8997), fontSize: 14))
+            ],
+          ),
+        ),
       ),
     );
   }
