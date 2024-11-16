@@ -7,11 +7,13 @@ class TextFieldWidget extends StatelessWidget {
     required this.label,
     required this.hintText,
     required this.visibility,
+    required this.controller,
   });
 
   final String label;
   final String hintText;
   final bool visibility;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,8 @@ class TextFieldWidget extends StatelessWidget {
             style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
         ClipRRect(
           borderRadius: BorderRadius.circular(8),
-          child: TextField(
+          child: TextFormField(
+            controller: controller,
             obscureText: visibility,
             keyboardType: visibility ? null : TextInputType.number,
             decoration: InputDecoration(
