@@ -8,12 +8,14 @@ class TextFieldWidget extends StatelessWidget {
     required this.hintText,
     required this.visibility,
     required this.controller,
+    this.onChanged,
   });
 
   final String label;
   final String hintText;
   final bool visibility;
   final TextEditingController controller;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,7 @@ class TextFieldWidget extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(8),
           child: TextFormField(
+            onChanged: onChanged,
             controller: controller,
             obscureText: visibility,
             keyboardType: visibility ? null : TextInputType.number,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:telgani/cubit/login_cubit.dart';
 import 'package:telgani/screens/login_screen.dart';
 
 void main() {
@@ -12,7 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Rubik'),
-      home: const LoginScreen(),
+      home: BlocProvider(
+        create: (context) => LoginCubit(),
+        child: const LoginScreen(),
+      ),
     );
   }
 }

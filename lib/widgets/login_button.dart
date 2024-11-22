@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:telgani/constant.dart';
-import 'package:telgani/text_field_controller/text_field_controller.dart';
 
 class LoginButtton extends StatelessWidget {
-  const LoginButtton({super.key});
+  const LoginButtton({super.key, this.onPressed});
+
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        // TextFieldController().login();
-        print('Phillip ${TextFieldController().loginNumber}');
-        print('Phillip ${TextFieldController().loginPassword}');
-      },
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
           backgroundColor: kPrimaryColor,
