@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:telgani/constant.dart';
 
 class TextFieldWidget extends StatelessWidget {
   const TextFieldWidget({
     super.key,
     required this.label,
     required this.hintText,
-    required this.visibility,
     required this.controller,
+    required this.phoneNumber,
+    this.obscurePassword,
     this.onChanged,
+    this.visibilityIcon,
   });
 
   final String label;
   final String hintText;
-  final bool visibility;
   final TextEditingController controller;
+  final bool? obscurePassword;
   final void Function(String)? onChanged;
+  final Widget? visibilityIcon;
+  final bool phoneNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +32,10 @@ class TextFieldWidget extends StatelessWidget {
           child: TextFormField(
             onChanged: onChanged,
             controller: controller,
-            obscureText: visibility,
-            keyboardType: visibility ? null : TextInputType.number,
+            obscureText: obscurePassword ?? false,
+            keyboardType: phoneNumber == true ? TextInputType.number : null,
             decoration: InputDecoration(
-              suffixIcon: visibility
-                  ? const Icon(
-                      Icons.visibility_rounded,
-                      color: kPrimaryColor,
-                    )
-                  : null,
+              suffixIcon: visibilityIcon,
               hintText: hintText,
               hintStyle:
                   const TextStyle(color: Color(0xff8A94A6), fontSize: 14),

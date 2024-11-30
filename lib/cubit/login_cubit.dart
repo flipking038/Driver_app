@@ -10,7 +10,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   String? phoneNumber;
   String? password;
-
+  bool? obscurePassword = true;
   login() async {
     try {
       final response = await dio
@@ -24,5 +24,12 @@ class LoginCubit extends Cubit<LoginState> {
     } catch (e) {
       print(e);
     }
+  }
+
+  showAndHidePassword() {
+    if (obscurePassword == true)
+      obscurePassword = false;
+    else if (obscurePassword == false) obscurePassword = true;
+    emit(ObscurePassword());
   }
 }

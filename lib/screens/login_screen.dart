@@ -14,7 +14,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final GlobalKey<FormState> key = GlobalKey();
+  final GlobalKey<FormState> loginKey = GlobalKey();
 
   TextEditingController loginNumber = TextEditingController();
   TextEditingController loginPassword = TextEditingController();
@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Form(
-                  key: key,
+                  key: loginKey,
                   child: SizedBox(
                     child: ListView(
                       children: [
@@ -45,10 +45,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                 color: Color(0xff7D8997), fontSize: 14)),
                         const SizedBox(height: 24),
                         TextFieldWidget(
+                          phoneNumber: true,
                           controller: loginNumber,
                           label: 'Phone Number',
                           hintText: '05**********',
-                          visibility: false,
                           onChanged: (value) {
                             BlocProvider.of<LoginCubit>(context).phoneNumber =
                                 value;
@@ -56,14 +56,28 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 23),
                         TextFieldWidget(
+                          phoneNumber: false,
                           controller: loginPassword,
                           label: 'Password',
                           hintText: 'Password',
-                          visibility: true,
                           onChanged: (value) {
                             BlocProvider.of<LoginCubit>(context).password =
                                 value;
                           },
+                          obscurePassword: BlocProvider.of<LoginCubit>(context)
+                              .obscurePassword,
+                          visibilityIcon: IconButton(
+                              onPressed: () =>
+                                  BlocProvider.of<LoginCubit>(context)
+                                      .showAndHidePassword(),
+                              icon: BlocProvider.of<LoginCubit>(context)
+                                          .obscurePassword ==
+                                      true
+                                  ? const Icon(
+                                      Icons.visibility_outlined,
+                                      color: kPrimaryColor,
+                                    )
+                                  : const Icon(Icons.visibility_off_outlined)),
                         ),
                         const SizedBox(height: 16),
                         const Text(
