@@ -19,16 +19,19 @@ class LoginCubit extends Cubit<LoginState> {
 
   login() async {
     try {
+      emit(LoginLoading());
       final response = await dio
           .post('https://api.dev.telgani.com/api/v4/login', data: {
         "country_code": "+966",
         "phone": phoneNumber,
         "password": password
       });
+      emit(LoginSuccess());
       print(response);
       print(response.statusCode);
     } catch (e) {
       print(e);
+      emit(LoginFailure(erorrMesage: e.toString()));
     }
   }
 

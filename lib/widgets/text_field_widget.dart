@@ -15,10 +15,10 @@ class TextFieldWidget extends StatelessWidget {
   final String label;
   final String hintText;
   final TextEditingController controller;
+  final bool phoneNumber;
   final bool? obscurePassword;
   final void Function(String)? onChanged;
   final Widget? visibilityIcon;
-  final bool phoneNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +32,13 @@ class TextFieldWidget extends StatelessWidget {
           child: TextFormField(
             onChanged: onChanged,
             controller: controller,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Enter an Phone number and password ';
+              } else {
+                return null;
+              }
+            },
             obscureText: obscurePassword ?? false,
             keyboardType: phoneNumber == true ? TextInputType.number : null,
             decoration: InputDecoration(
