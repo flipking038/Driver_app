@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:telgani/constant.dart';
 import 'package:telgani/cubit/login_cubit.dart';
+import 'package:telgani/screens/home_screen.dart';
 import 'package:telgani/widgets/login_widgets/login_button.dart';
 import 'package:telgani/widgets/text_field_widget.dart';
 
@@ -12,7 +13,13 @@ class FormLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
-        if (state is LoginSuccess) {}
+        if (state is LoginSuccess) {
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomeScreen(),
+              ));
+        }
         if (state is LoginFailure) {}
       },
       builder: (context, state) {

@@ -34,7 +34,7 @@ class TextFieldWidget extends StatelessWidget {
             controller: controller,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Enter an Phone number and password ';
+                return 'Enter a $label';
               } else {
                 return null;
               }

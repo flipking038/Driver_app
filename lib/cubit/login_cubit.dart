@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:telgani/cache_helper/cache_helper.dart';
 
 part 'login_state.dart';
 
@@ -20,17 +21,17 @@ class LoginCubit extends Cubit<LoginState> {
   login() async {
     try {
       emit(LoginLoading());
-      final response = await dio
+      final Response response = await dio
           .post('https://api.dev.telgani.com/api/v4/login', data: {
         "country_code": "+966",
         "phone": phoneNumber,
         "password": password
       });
+      // Save Token
+      String token = response.data['data']['token']['signature'];
+      CacherHelper.saveData(key: 'token', value: token);
       emit(LoginSuccess());
-      print(response);
-      print(response.statusCode);
     } catch (e) {
-      print(e);
       emit(LoginFailure(erorrMesage: e.toString()));
     }
   }
