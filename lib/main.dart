@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:telgani/cache_helper/cache_helper.dart';
 import 'package:telgani/cubit/login_cubit.dart';
-import 'package:telgani/screens/home_screen.dart';
+import 'package:telgani/screens/profile_screen.dart';
 import 'package:telgani/screens/login_screen.dart';
 
 void main() async {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         create: (context) => LoginCubit(),
         child: CacherHelper.getData(key: 'token') != null &&
                 CacherHelper.getData(key: 'token') != ''
-            ? const HomeScreen()
+            ? ProfileScreen()
             : const LoginScreen(),
       ),
     );

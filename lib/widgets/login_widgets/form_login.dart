@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:telgani/constant.dart';
 import 'package:telgani/cubit/login_cubit.dart';
-import 'package:telgani/screens/home_screen.dart';
+import 'package:telgani/screens/profile_screen.dart';
 import 'package:telgani/widgets/login_widgets/login_button.dart';
 import 'package:telgani/widgets/text_field_widget.dart';
 
@@ -17,7 +17,7 @@ class FormLogin extends StatelessWidget {
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => HomeScreen(),
+                builder: (context) => ProfileScreen(),
               ));
         }
         if (state is LoginFailure) {}
