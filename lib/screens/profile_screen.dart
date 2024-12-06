@@ -10,24 +10,26 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Color(0xffFBFBFF),
-      body: Column(
+      body: Stack(
         children: [
-          Stack(
-            children: [
-              HeaderBackground(
-                child: Stack(
+          HeaderBackground(
+            child: Column(
+              children: [
+                SizedBox(height: 98),
+                Stack(
                   alignment: Alignment.topCenter,
                   clipBehavior: Clip.none,
                   children: [
-                    UserCardInfo(),
+                    UserCardInfo(name: 'Driver Name', company: 'Company Name'),
                     UserImage(),
+                    Positioned(
+                        top: 128,
+                        child: UserCardInfo(name: 'name', company: 'company')),
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          SizedBox(height: 10),
-          UserCardInfo(),
         ],
       ),
     );
