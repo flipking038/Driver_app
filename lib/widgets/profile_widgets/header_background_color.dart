@@ -9,7 +9,6 @@ class HeaderBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
       height: 266,
       alignment: Alignment.center,
       decoration: BoxDecoration(
