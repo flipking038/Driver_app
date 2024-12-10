@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:telgani/widgets/profile_widgets/header_background_color.dart';
-import 'package:telgani/widgets/profile_widgets/profile_cards.dart';
+import 'package:telgani/widgets/profile_widgets/opteon_profile.dart';
+import 'package:telgani/widgets/profile_widgets/profile_rating_cards.dart';
 import 'package:telgani/widgets/profile_widgets/user_card_info.dart';
 import 'package:telgani/widgets/profile_widgets/user_image.dart';
 
@@ -29,9 +30,7 @@ class ProfileScreen extends StatelessWidget {
                       Positioned(
                         top: 128,
                         child: Column(
-                          children: [
-                            ProfileCard(),
-                          ],
+                          children: [ProfileRatingCard(), OpteonProfile()],
                         ),
                       )
                     ],
