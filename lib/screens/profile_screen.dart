@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:telgani/widgets/profile_widgets/header_background_color.dart';
+import 'package:telgani/widgets/profile_widgets/logout.dart';
 import 'package:telgani/widgets/profile_widgets/option_profile.dart';
 import 'package:telgani/widgets/profile_widgets/profile_rating_cards.dart';
 import 'package:telgani/widgets/profile_widgets/user_card_info.dart';
@@ -34,6 +35,7 @@ class ProfileScreen extends StatelessWidget {
                             children: [
                               ProfileRatingCard(),
                               OpteonProfile(),
+                              LogOut()
                             ],
                           ),
                         )
