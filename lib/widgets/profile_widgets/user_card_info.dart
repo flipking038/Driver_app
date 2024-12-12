@@ -10,8 +10,8 @@ class UserCardInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 124,
-      width: 340,
+      height: 116,
+      width: 345,
       child: Card(
         color: Colors.white,
         child: Padding(

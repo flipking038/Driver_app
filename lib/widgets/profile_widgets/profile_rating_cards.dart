@@ -13,7 +13,7 @@ class ProfileRatingCard extends StatelessWidget {
       cardChild: Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
             child: CardListTile(
               title: 'RATINGS(4.5)',
               titleTextStyle: TextStyle(color: Color(0xffA6A6A6), fontSize: 14),
@@ -33,7 +33,7 @@ class ProfileRatingCard extends StatelessWidget {
           ),
           StrokeWidget(),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
             child: CardListTile(
               title: 'EARNING',
               titleTextStyle: TextStyle(color: Color(0xffA6A6A6), fontSize: 14),
