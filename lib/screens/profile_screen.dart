@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:telgani/cubit/profile/profile_cubit.dart';
 import 'package:telgani/widgets/profile_widgets/header_background_color.dart';
 import 'package:telgani/widgets/profile_widgets/logout.dart';
@@ -13,6 +14,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<ProfileCubit>().profile();
+
     return BlocConsumer<ProfileCubit, ProfileState>(
       listener: (context, state) {},
       builder: (context, state) {
@@ -32,8 +35,11 @@ class ProfileScreen extends StatelessWidget {
                           clipBehavior: Clip.none,
                           children: [
                             UserCardInfo(
-                                name: 'Driver ${ProfileCubit.name}',
-                                company: 'Company${ProfileCubit.company}'),
+                              name:
+                                  'Driver ${BlocProvider.of<ProfileCubit>(context).name}',
+                              company:
+                                  'Company ${BlocProvider.of<ProfileCubit>(context).company}',
+                            ),
                             const UserImage(),
                             const Positioned(
                               top: 120,

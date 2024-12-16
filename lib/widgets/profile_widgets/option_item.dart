@@ -3,9 +3,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:telgani/widgets/profile_widgets/card_list_tile.dart';
 
 class OptionItem extends StatelessWidget {
-  const OptionItem({super.key, required this.optionIcon});
+  const OptionItem({super.key, required this.optionIcon, required this.title});
 
   final String optionIcon;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class OptionItem extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 20),
       child: CardListTile(
         leading: SvgPicture.asset(optionIcon),
-        title: 'Change Language',
+        title: title,
         titleTextStyle: const TextStyle(
           color: Color(0xff555F6A),
           fontSize: 14,

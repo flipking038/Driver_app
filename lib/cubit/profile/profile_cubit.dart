@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:telgani/constant.dart';
 
@@ -9,12 +10,12 @@ class ProfileCubit extends Cubit<ProfileState> {
 
   Dio dio = Dio();
 
-  static String? name;
-  static String? company;
+  String? name;
+  String? company;
 
-  Future<dynamic> profile() async {
-    emit(ProfileLoading());
+  profile() async {
     try {
+      emit(ProfileLoading());
       dio.options.headers['Authorization'] = "Bearer $token";
 
       final Response response =
@@ -22,6 +23,7 @@ class ProfileCubit extends Cubit<ProfileState> {
 
       name = response.data['data']['name'];
       company = response.data['data']['company']['names']['en'];
+
       emit(ProfileSuccess());
     } catch (e) {
       emit(ProfileFailure(message: e.toString()));

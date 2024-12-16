@@ -14,22 +14,34 @@ class OpteonProfile extends StatelessWidget {
         cardChild: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            OptionItem(optionIcon: 'assets/image/change_password.svg'),
+            OptionItem(
+              optionIcon: 'assets/image/change_password.svg',
+              title: 'Change Password',
+            ),
             Padding(
               padding: EdgeInsets.only(left: 52),
               child: StrokeWidget(),
             ),
-            OptionItem(optionIcon: 'assets/image/change_language.svg'),
+            OptionItem(
+              optionIcon: 'assets/image/change_language.svg',
+              title: 'Change Language',
+            ),
             Padding(
               padding: EdgeInsets.only(left: 52),
               child: StrokeWidget(),
             ),
-            OptionItem(optionIcon: 'assets/image/instructions.svg'),
+            OptionItem(
+              optionIcon: 'assets/image/instructions.svg',
+              title: 'Instructions',
+            ),
             Padding(
               padding: EdgeInsets.only(left: 52),
               child: StrokeWidget(),
             ),
-            OptionItem(optionIcon: 'assets/image/add_suggestion.svg'),
+            OptionItem(
+              optionIcon: 'assets/image/add_suggestion.svg',
+              title: 'Add Suggestion',
+            ),
           ],
         ),
       ),
