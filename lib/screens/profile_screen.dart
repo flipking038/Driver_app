@@ -14,7 +14,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<ProfileCubit>().profile();
+    // context.read<ProfileCubit>().profile();
 
     return BlocConsumer<ProfileCubit, ProfileState>(
       listener: (context, state) {},

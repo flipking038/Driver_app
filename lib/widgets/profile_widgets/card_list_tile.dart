@@ -7,16 +7,21 @@ class CardListTile extends StatelessWidget {
     this.subtitle,
     this.leading,
     required this.titleTextStyle,
+    this.onTap,
   });
 
   final String title;
   final Widget? subtitle;
   final Widget? leading;
   final TextStyle titleTextStyle;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () {
+        print('Fady');
+      },
       leading: leading,
       title: Text(
         title,

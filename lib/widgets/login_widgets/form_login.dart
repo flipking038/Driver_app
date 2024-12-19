@@ -17,7 +17,7 @@ class FormLogin extends StatelessWidget {
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => ProfileScreen(),
+                builder: (context) => const ProfileScreen(),
               ));
         }
         if (state is LoginFailure) {}

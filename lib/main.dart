@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:telgani/cache_helper/cache_helper.dart';
 import 'package:telgani/cubit/login/login_cubit.dart';
 import 'package:telgani/cubit/profile/profile_cubit.dart';
+import 'package:telgani/screens/change_password_screen.dart';
 
 import 'package:telgani/screens/profile_screen.dart';
 import 'package:telgani/screens/login_screen.dart';
@@ -20,16 +21,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(fontFamily: 'Rubik'),
-      home: MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (context) => LoginCubit()),
-          BlocProvider(create: (context) => ProfileCubit()),
-        ],
-        child: CacherHelper.getData(key: 'token') != null &&
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => LoginCubit()),
+        BlocProvider(create: (context) => ProfileCubit()),
+      ],
+      child: MaterialApp(
+        theme: ThemeData(fontFamily: 'Rubik'),
+        home: CacherHelper.getData(key: 'token') != null &&
                 CacherHelper.getData(key: 'token') != ''
-            ? const ProfileScreen()
+            ? const ChangePasswordScreen()
             : const LoginScreen(),
       ),
     );
