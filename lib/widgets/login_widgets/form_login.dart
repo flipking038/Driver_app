@@ -70,6 +70,7 @@ class FormLogin extends StatelessWidget {
               state is LoginLoading
                   ? const CircularProgressIndicator()
                   : LoginButtton(
+                      textButton: 'Login',
                       onPressed: () {
                         if (BlocProvider.of<LoginCubit>(context)
                             .loginKey

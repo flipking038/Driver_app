@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:telgani/constant.dart';
 
 class LoginButtton extends StatelessWidget {
-  const LoginButtton({super.key, this.onPressed});
+  const LoginButtton({super.key, this.onPressed, required this.textButton});
 
   final void Function()? onPressed;
+  final String textButton;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class LoginButtton extends StatelessWidget {
             backgroundColor: kPrimaryColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12))),
-        child: const Text('Login'),
+        child: Text(textButton),
       ),
     );
   }

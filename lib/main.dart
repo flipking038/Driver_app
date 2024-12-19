@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:telgani/cache_helper/cache_helper.dart';
+import 'package:telgani/cubit/change_password_cubit/change_password_cubit.dart';
 import 'package:telgani/cubit/login/login_cubit.dart';
 import 'package:telgani/cubit/profile/profile_cubit.dart';
 import 'package:telgani/screens/change_password_screen.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => LoginCubit()),
         BlocProvider(create: (context) => ProfileCubit()),
+        BlocProvider(create: (context) => ChangePasswordCubit()),
       ],
       child: MaterialApp(
         theme: ThemeData(fontFamily: 'Rubik'),
