@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:telgani/constant.dart';
 import 'package:telgani/cubit/login/login_cubit.dart';
 import 'package:telgani/screens/profile_screen.dart';
-import 'package:telgani/widgets/login_button.dart';
+import 'package:telgani/widgets/custom_button.dart';
 import 'package:telgani/widgets/text_field_widget.dart';
 
 class FormLogin extends StatelessWidget {
@@ -42,6 +42,7 @@ class FormLogin extends StatelessWidget {
                 controller: BlocProvider.of<LoginCubit>(context).loginPassword,
                 label: 'Password',
                 hintText: 'Password',
+                textInputAction: TextInputAction.go,
                 onChanged: (value) =>
                     BlocProvider.of<LoginCubit>(context).password = value,
                 obscurePassword:
@@ -72,7 +73,7 @@ class FormLogin extends StatelessWidget {
               const SizedBox(height: 32),
               state is LoginLoading
                   ? const Center(child: CircularProgressIndicator())
-                  : LoginButtton(
+                  : CustomButtton(
                       textButton: 'Login',
                       onPressed: () {
                         if (BlocProvider.of<LoginCubit>(context)

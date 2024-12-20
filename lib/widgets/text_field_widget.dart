@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  const TextFieldWidget({
-    super.key,
-    required this.label,
-    required this.hintText,
-    required this.controller,
-    required this.phoneNumber,
-    this.obscurePassword,
-    this.onChanged,
-    this.visibilityIcon,
-  });
+  const TextFieldWidget(
+      {super.key,
+      required this.label,
+      required this.hintText,
+      required this.controller,
+      required this.phoneNumber,
+      this.obscurePassword,
+      this.onChanged,
+      this.visibilityIcon,
+      this.textInputAction});
 
   final String label;
   final String hintText;
@@ -19,6 +19,7 @@ class TextFieldWidget extends StatelessWidget {
   final bool? obscurePassword;
   final void Function(String)? onChanged;
   final Widget? visibilityIcon;
+  final TextInputAction? textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +31,8 @@ class TextFieldWidget extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(8),
           child: TextFormField(
+            textInputAction: textInputAction,
+            onFieldSubmitted: (value) => FocusScope.of(context).nextFocus(),
             onChanged: onChanged,
             controller: controller,
             validator: (value) {

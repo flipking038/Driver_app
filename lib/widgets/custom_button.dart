@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:telgani/constant.dart';
 
-class LoginButtton extends StatelessWidget {
-  const LoginButtton({super.key, this.onPressed, required this.textButton});
+class CustomButtton extends StatelessWidget {
+  const CustomButtton({super.key, this.onPressed, required this.textButton});
 
   final void Function()? onPressed;
   final String textButton;

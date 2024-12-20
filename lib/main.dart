@@ -4,8 +4,6 @@ import 'package:telgani/cache_helper/cache_helper.dart';
 import 'package:telgani/cubit/change_password_cubit/change_password_cubit.dart';
 import 'package:telgani/cubit/login/login_cubit.dart';
 import 'package:telgani/cubit/profile/profile_cubit.dart';
-import 'package:telgani/screens/change_password_screen.dart';
-
 import 'package:telgani/screens/profile_screen.dart';
 import 'package:telgani/screens/login_screen.dart';
 
@@ -32,7 +30,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(fontFamily: 'Rubik'),
         home: CacherHelper.getData(key: 'token') != null &&
                 CacherHelper.getData(key: 'token') != ''
-            ? const ChangePasswordScreen()
+            ? const ProfileScreen()
             : const LoginScreen(),
       ),
     );

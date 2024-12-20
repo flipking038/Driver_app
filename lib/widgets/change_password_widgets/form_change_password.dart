@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:telgani/constant.dart';
 import 'package:telgani/cubit/change_password_cubit/change_password_cubit.dart';
-import 'package:telgani/widgets/login_button.dart';
+import 'package:telgani/screens/login_screen.dart';
+import 'package:telgani/widgets/custom_button.dart';
 import 'package:telgani/widgets/text_field_widget.dart';
 
 class FormChangePassword extends StatelessWidget {
@@ -11,7 +12,12 @@ class FormChangePassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ChangePasswordCubit, ChangePasswordState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is ChangePasswordSuccess) {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => LoginScreen()));
+        }
+      },
       builder: (context, state) {
         return Form(
           key: BlocProvider.of<ChangePasswordCubit>(context).changePasswordKey,
@@ -21,6 +27,7 @@ class FormChangePassword extends StatelessWidget {
               children: [
                 const SizedBox(height: 58),
                 TextFieldWidget(
+                  textInputAction: TextInputAction.next,
                   phoneNumber: false,
                   controller: BlocProvider.of<ChangePasswordCubit>(context)
                       .passwordController,
@@ -55,6 +62,7 @@ class FormChangePassword extends StatelessWidget {
                       .newPasswordController,
                   label: 'New Password',
                   hintText: 'New Password',
+                  textInputAction: TextInputAction.next,
                   onChanged: (value) =>
                       BlocProvider.of<ChangePasswordCubit>(context)
                           .newPassword = value,
@@ -84,6 +92,7 @@ class FormChangePassword extends StatelessWidget {
                       .confirmNewPasswordController,
                   label: 'Confirm Password',
                   hintText: 'Confirm Password',
+                  textInputAction: TextInputAction.go,
                   onChanged: (value) =>
                       BlocProvider.of<ChangePasswordCubit>(context)
                           .confirmNewPassword = value,
@@ -109,7 +118,7 @@ class FormChangePassword extends StatelessWidget {
                 const SizedBox(height: 32),
                 state is ChangePasswordLoading
                     ? const Center(child: CircularProgressIndicator())
-                    : LoginButtton(
+                    : CustomButtton(
                         textButton: 'Save',
                         onPressed: () {
                           if (BlocProvider.of<ChangePasswordCubit>(context)
