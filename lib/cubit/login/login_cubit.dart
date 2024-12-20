@@ -37,9 +37,11 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   showAndHidePassword() {
-    if (obscurePassword == true)
+    if (obscurePassword == true) {
       obscurePassword = false;
-    else if (obscurePassword == false) obscurePassword = true;
+    } else if (obscurePassword == false) {
+      obscurePassword = true;
+    }
     emit(ObscurePassword());
   }
 }

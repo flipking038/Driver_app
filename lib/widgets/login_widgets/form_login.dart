@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:telgani/constant.dart';
 import 'package:telgani/cubit/login/login_cubit.dart';
 import 'package:telgani/screens/profile_screen.dart';
-import 'package:telgani/widgets/login_widgets/login_button.dart';
+import 'package:telgani/widgets/login_button.dart';
 import 'package:telgani/widgets/text_field_widget.dart';
 
 class FormLogin extends StatelessWidget {
@@ -55,7 +55,10 @@ class FormLogin extends StatelessWidget {
                           Icons.visibility,
                           color: kPrimaryColor,
                         )
-                      : const Icon(Icons.visibility_off),
+                      : const Icon(
+                          Icons.visibility_off,
+                          color: kPrimaryColor,
+                        ),
                 ),
               ),
               const SizedBox(height: 16),
@@ -68,7 +71,7 @@ class FormLogin extends StatelessWidget {
               ),
               const SizedBox(height: 32),
               state is LoginLoading
-                  ? const CircularProgressIndicator()
+                  ? const Center(child: CircularProgressIndicator())
                   : LoginButtton(
                       textButton: 'Login',
                       onPressed: () {

@@ -13,6 +13,7 @@ class ChangePasswordCubit extends Cubit<ChangePasswordState> {
   String? password;
   String? newPassword;
   String? confirmNewPassword;
+  bool? obscurePassword = true;
 
   TextEditingController passwordController = TextEditingController();
   TextEditingController newPasswordController = TextEditingController();
@@ -21,13 +22,29 @@ class ChangePasswordCubit extends Cubit<ChangePasswordState> {
   final GlobalKey<FormState> changePasswordKey = GlobalKey();
 
   changePassword() async {
-    dio.options.headers['Authorization'] = "Bearer $token";
+    try {
+      emit(ChangePasswordLoading());
+      dio.options.headers['Authorization'] = "Bearer $token";
 
-    final Response response = await dio
-        .put('https://api.dev.telgani.com/api/v4/driver/password', data: {
-      'actual_password': password,
-      'new_password': newPassword,
-      'new_password_confirmation': confirmNewPassword,
-    });
+      final Response response = await dio
+          .put('https://api.dev.telgani.com/api/v4/driver/password', data: {
+        'actual_password': password,
+        'new_password': newPassword,
+        'new_password_confirmation': confirmNewPassword,
+      });
+      print(response.data);
+      emit(ChangePasswordSuccess());
+    } catch (e) {
+      emit(ChangePasswordFailure(errMesage: e.toString()));
+    }
+  }
+
+  showAndHidePassword() {
+    if (obscurePassword == true) {
+      obscurePassword = false;
+    } else if (obscurePassword == false) {
+      obscurePassword = true;
+    }
+    emit(ObscurePassword());
   }
 }
