@@ -19,9 +19,7 @@ class CardListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () {
-        print('Fady');
-      },
+      onTap: onTap,
       leading: leading,
       title: Text(
         title,

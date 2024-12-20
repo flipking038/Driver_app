@@ -19,43 +19,42 @@ class ProfileScreen extends StatelessWidget {
     return BlocConsumer<ProfileCubit, ProfileState>(
       listener: (context, state) {},
       builder: (context, state) {
-        return Scaffold(
-          backgroundColor: const Color(0xffFBFBFF),
+        return const Scaffold(
+          backgroundColor: Color(0xffFBFBFF),
           body: SingleChildScrollView(
             child: Column(
               children: [
-                HeaderBackground(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24),
-                    child: Column(
+                Stack(
+                  alignment: Alignment.center,
+                  clipBehavior: Clip.none,
+                  children: [
+                    HeaderBackground(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 24),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: -58,
+                      child: UserCardInfo(
+                        name: 'Driver ',
+                        company: 'Company ',
+                      ),
+                    ),
+                    UserImage(),
+                  ],
+                ),
+                Column(
+                  children: [
+                    SizedBox(height: 98),
+                    Column(
                       children: [
-                        const SizedBox(height: 98),
-                        Stack(
-                          alignment: Alignment.topCenter,
-                          clipBehavior: Clip.none,
-                          children: [
-                            UserCardInfo(
-                              name:
-                                  'Driver ${BlocProvider.of<ProfileCubit>(context).name}',
-                              company:
-                                  'Company ${BlocProvider.of<ProfileCubit>(context).company}',
-                            ),
-                            const UserImage(),
-                            const Positioned(
-                              top: 120,
-                              child: Column(
-                                children: [
-                                  ProfileRatingCard(),
-                                  OpteonProfile(),
-                                  LogOut()
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
+                        ProfileRatingCard(),
+                        OpteonProfile(),
+                        LogOut(),
+                        SizedBox(height: 10)
                       ],
                     ),
-                  ),
+                  ],
                 ),
               ],
             ),

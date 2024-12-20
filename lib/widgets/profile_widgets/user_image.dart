@@ -7,7 +7,7 @@ class UserImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Positioned(
-      top: -33,
+      bottom: 16,
       child: CircleAvatar(
         radius: 38,
         backgroundColor: kPrimaryColor,
