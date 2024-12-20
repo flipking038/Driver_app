@@ -45,13 +45,13 @@ class TextFieldWidget extends StatelessWidget {
             obscureText: obscurePassword ?? false,
             keyboardType: phoneNumber == true ? TextInputType.number : null,
             decoration: InputDecoration(
-              suffixIcon: visibilityIcon,
               hintText: hintText,
               hintStyle:
                   const TextStyle(color: Color(0xff8A94A6), fontSize: 14),
               fillColor: const Color(0xffF5F7FA),
               filled: true,
               border: InputBorder.none,
+              suffixIcon: visibilityIcon,
             ),
           ),
         )

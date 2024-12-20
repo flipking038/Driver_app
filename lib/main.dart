@@ -27,7 +27,12 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => ChangePasswordCubit()),
       ],
       child: MaterialApp(
-        theme: ThemeData(fontFamily: 'Rubik'),
+        theme: ThemeData(
+          fontFamily: 'Rubik',
+          appBarTheme: const AppBarTheme(
+            iconTheme: IconThemeData(color: Colors.white),
+          ),
+        ),
         home: CacherHelper.getData(key: 'token') != null &&
                 CacherHelper.getData(key: 'token') != ''
             ? const ProfileScreen()

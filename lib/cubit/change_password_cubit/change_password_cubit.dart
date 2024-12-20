@@ -37,6 +37,7 @@ class ChangePasswordCubit extends Cubit<ChangePasswordState> {
       emit(ChangePasswordSuccess());
     } catch (e) {
       emit(ChangePasswordFailure(errMesage: e.toString()));
+      print(e.toString());
     }
   }
 

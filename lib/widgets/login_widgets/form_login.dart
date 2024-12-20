@@ -33,6 +33,7 @@ class FormLogin extends StatelessWidget {
                 controller: BlocProvider.of<LoginCubit>(context).loginNumber,
                 label: 'Phone Number',
                 hintText: '05**********',
+                textInputAction: TextInputAction.next,
                 onChanged: (value) =>
                     BlocProvider.of<LoginCubit>(context).phoneNumber = value,
               ),
@@ -42,7 +43,6 @@ class FormLogin extends StatelessWidget {
                 controller: BlocProvider.of<LoginCubit>(context).loginPassword,
                 label: 'Password',
                 hintText: 'Password',
-                textInputAction: TextInputAction.go,
                 onChanged: (value) =>
                     BlocProvider.of<LoginCubit>(context).password = value,
                 obscurePassword:
